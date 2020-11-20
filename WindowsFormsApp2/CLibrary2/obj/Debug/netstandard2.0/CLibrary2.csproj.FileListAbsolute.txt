@@ -1,0 +1,12 @@
+C:\Users\epch\source\repos\WindowsFormsApp2\CLibrary2\bin\Debug\netstandard2.0\CLibrary2.deps.json
+C:\Users\epch\source\repos\WindowsFormsApp2\CLibrary2\bin\Debug\netstandard2.0\CLibrary2.dll
+C:\Users\epch\source\repos\WindowsFormsApp2\CLibrary2\bin\Debug\netstandard2.0\CLibrary2.pdb
+C:\Users\epch\source\repos\WindowsFormsApp2\CLibrary2\bin\Debug\netstandard2.0\СLibrary1.dll
+C:\Users\epch\source\repos\WindowsFormsApp2\CLibrary2\bin\Debug\netstandard2.0\СLibrary1.pdb
+C:\Users\epch\source\repos\WindowsFormsApp2\CLibrary2\obj\Debug\netstandard2.0\CLibrary2.csprojAssemblyReference.cache
+C:\Users\epch\source\repos\WindowsFormsApp2\CLibrary2\obj\Debug\netstandard2.0\CLibrary2.AssemblyInfoInputs.cache
+C:\Users\epch\source\repos\WindowsFormsApp2\CLibrary2\obj\Debug\netstandard2.0\CLibrary2.AssemblyInfo.cs
+C:\Users\epch\source\repos\WindowsFormsApp2\CLibrary2\obj\Debug\netstandard2.0\CLibrary2.csproj.CoreCompileInputs.cache
+C:\Users\epch\source\repos\WindowsFormsApp2\CLibrary2\obj\Debug\netstandard2.0\CLibrary2.csproj.CopyComplete
+C:\Users\epch\source\repos\WindowsFormsApp2\CLibrary2\obj\Debug\netstandard2.0\CLibrary2.dll
+C:\Users\epch\source\repos\WindowsFormsApp2\CLibrary2\obj\Debug\netstandard2.0\CLibrary2.pdb
