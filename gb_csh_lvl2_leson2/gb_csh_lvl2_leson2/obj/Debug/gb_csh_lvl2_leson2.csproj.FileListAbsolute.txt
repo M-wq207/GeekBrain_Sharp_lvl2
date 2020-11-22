@@ -1,0 +1,7 @@
+C:\Users\epch\source\repos\gb_csh_lvl2_leson2\gb_csh_lvl2_leson2\bin\Debug\gb_csh_lvl2_leson2.exe.config
+C:\Users\epch\source\repos\gb_csh_lvl2_leson2\gb_csh_lvl2_leson2\bin\Debug\gb_csh_lvl2_leson2.exe
+C:\Users\epch\source\repos\gb_csh_lvl2_leson2\gb_csh_lvl2_leson2\bin\Debug\gb_csh_lvl2_leson2.pdb
+C:\Users\epch\source\repos\gb_csh_lvl2_leson2\gb_csh_lvl2_leson2\obj\Debug\gb_csh_lvl2_leson2.csprojAssemblyReference.cache
+C:\Users\epch\source\repos\gb_csh_lvl2_leson2\gb_csh_lvl2_leson2\obj\Debug\gb_csh_lvl2_leson2.csproj.CoreCompileInputs.cache
+C:\Users\epch\source\repos\gb_csh_lvl2_leson2\gb_csh_lvl2_leson2\obj\Debug\gb_csh_lvl2_leson2.exe
+C:\Users\epch\source\repos\gb_csh_lvl2_leson2\gb_csh_lvl2_leson2\obj\Debug\gb_csh_lvl2_leson2.pdb
