@@ -7,25 +7,15 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp2
 {
-    public class Asteroid
+    class Asteroid : BaseObject
     {
-        protected Point Pos;
-        protected Point Dir;
-        protected Size Size;
-
-        public Asteroid (Point pos, Point dir, Size size)
+        public Asteroid(Point pos, Point dir, Size size) : base(pos, dir, size){}
+        public override void Draw()
         {
-            Pos = pos;
-            Dir = dir;
-            Size = size;
-        }
-
-        public virtual void Draw()
-        {            
             Game.Buffer.Graphics.DrawImage(new Bitmap(WindowsFormsApp2.Properties.Resources.asteroid01, new Size(Size.Width, Size.Height)), Pos.X, Pos.Y);
-        }
 
-        public virtual void Update()
+        }
+        public override void Update()
         {
             Pos.X = Pos.X + Dir.X;
             Pos.Y = Pos.Y + Dir.Y;

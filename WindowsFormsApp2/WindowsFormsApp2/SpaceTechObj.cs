@@ -14,9 +14,29 @@ namespace WindowsFormsApp2
         protected Image Img;
         public SpaceTechObj (Point pos, Point dir, Size size, Image img)
         {
-            Pos = pos;
-            Dir = dir;
-            Size = size;
+            if (
+                pos.X < 0 ||
+                pos.Y < 0 ||
+                pos.X > 1000 ||
+                pos.Y > 1000 ||
+                dir.X < -600 ||
+                dir.Y < -600 ||
+                dir.X > 600 ||
+                dir.Y > 600 ||
+                size.Width < 0 ||
+                size.Height < 0 ||
+                size.Width > 600 ||
+                size.Height > 800
+                )
+            {
+                throw new GameObjectException("Параметры заданны не верно", pos, dir, size);
+            }
+            else
+            {
+                Pos = pos;
+                Dir = dir;
+                Size = size;
+            }
             Img = img;
         }
         public virtual void Draw()

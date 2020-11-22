@@ -1,0 +1,7 @@
+C:\Users\epch\source\repos\WindowsFormsApp2\Leson2_2\bin\Debug\Leson2_2.exe.config
+C:\Users\epch\source\repos\WindowsFormsApp2\Leson2_2\bin\Debug\Leson2_2.exe
+C:\Users\epch\source\repos\WindowsFormsApp2\Leson2_2\bin\Debug\Leson2_2.pdb
+C:\Users\epch\source\repos\WindowsFormsApp2\Leson2_2\obj\Debug\Leson2_2.csprojAssemblyReference.cache
+C:\Users\epch\source\repos\WindowsFormsApp2\Leson2_2\obj\Debug\Leson2_2.csproj.CoreCompileInputs.cache
+C:\Users\epch\source\repos\WindowsFormsApp2\Leson2_2\obj\Debug\Leson2_2.exe
+C:\Users\epch\source\repos\WindowsFormsApp2\Leson2_2\obj\Debug\Leson2_2.pdb

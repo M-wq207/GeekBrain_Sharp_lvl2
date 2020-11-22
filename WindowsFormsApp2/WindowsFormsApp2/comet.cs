@@ -7,7 +7,7 @@ using System.Drawing;
 
 namespace WindowsFormsApp2
 {
-    class comet : Asteroid
+    class comet : BaseObject
     {
         public Image img { get; set; }
         public comet(Point pos, Point dir, Size size) : base (pos, dir, size)
@@ -23,18 +23,20 @@ namespace WindowsFormsApp2
         {
          Pos.X = Pos.X + Dir.X;
          Pos.Y = Pos.Y + Dir.Y;
-            if (Pos.X < -100)
+            if (Pos.X < -200)
             {
-                Dir.Y *= -1;
-                Dir.X *= -1;
-                img.RotateFlip(RotateFlipType.Rotate180FlipNone);
+                Pos.X = 400;
+                Pos.Y = 500;
+                //Dir.Y *= -1;
+                //Dir.X *= -1;
+                //img.RotateFlip(RotateFlipType.Rotate180FlipNone);
             }
-            if (Pos.Y > 700)
-            {
-                Dir.Y *= -1;
-                Dir.X *= -1;
-                img.RotateFlip(RotateFlipType.Rotate180FlipNone);
-            }
+            //if (Pos.Y > 700)
+            //{
+               // Dir.Y *= -1;
+                //Dir.X *= -1;
+                //img.RotateFlip(RotateFlipType.Rotate180FlipNone);
+            //}
             
 
         }

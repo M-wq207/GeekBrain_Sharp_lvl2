@@ -5,6 +5,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Threading.Tasks;
 using System.Drawing;
+using System.Diagnostics;
 
 namespace WindowsFormsApp2
 {
@@ -12,8 +13,9 @@ namespace WindowsFormsApp2
     {
         private static BufferedGraphicsContext _context;
         public static BufferedGraphics Buffer;
-        static Asteroid[] _asteroids;
-        static Asteroid[] _stars;
+        static BaseObject[] _asteroids;
+        static BaseObject[] _stars;
+        static Bullet _bullet;
         private static comet comet = new comet(new Point(400, 500), new Point(-30, -30), new Size(50, 50));
 
 
@@ -40,6 +42,15 @@ namespace WindowsFormsApp2
             timer.Tick += Timer_Tick;
             timer.Start();
 
+            //проверка, что размер окна не привышает 1000
+            try
+            {
+                if (form.Size.Width > 1000 || form.Size.Height > 1000) throw new ArgumentOutOfRangeException();
+            }
+            catch (ArgumentOutOfRangeException ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
         }
 
         private static void Timer_Tick(object sender, EventArgs e)
@@ -50,33 +61,41 @@ namespace WindowsFormsApp2
 
         public static void Drow()
         {
-            Buffer.Graphics.Clear(Color.Black);
-
-            //фон
-            Buffer.Graphics.DrawImage(new Bitmap(WindowsFormsApp2.Properties.Resources.space_background, new Size(800, 600)), 0, 0);
-
-            //звезды
-            foreach (Star obj in _stars)
+            try
             {
-                obj.Draw();
+                Buffer.Graphics.Clear(Color.Black);
+
+                //фон
+                Buffer.Graphics.DrawImage(new Bitmap(WindowsFormsApp2.Properties.Resources.space_background, new Size(800, 600)), 0, 0);
+
+                //звезды
+                foreach (Star obj in _stars)
+                {
+                    obj.Draw();
+                }
+
+                //планета
+                Buffer.Graphics.DrawImage(new Bitmap(WindowsFormsApp2.Properties.Resources.planet, new Size(200, 200)), 200, 200);
+
+
+                //астероиды
+                foreach (Asteroid obj in _asteroids)
+                {
+                    obj.Draw();
+                }
+                //комета
+                comet.Draw();
+
+                SplashScreen.drawAll();
+
+                _bullet.Draw();
+
+                Buffer.Render();
             }
-
-            //планета
-            Buffer.Graphics.DrawImage(new Bitmap(WindowsFormsApp2.Properties.Resources.planet, new Size(200, 200)), 200, 200);
-
-
-            //астероиды
-            foreach (Asteroid obj in _asteroids)
+            catch (GameObjectException ex)
             {
-                obj.Draw();
+                Debug.WriteLine(ex.Message);
             }
-            //комета
-            comet.Draw();
-
-            SplashScreen.drawAll();
-
-
-            Buffer.Render();
         }
 
         public static void Update()
@@ -84,17 +103,27 @@ namespace WindowsFormsApp2
             foreach (var obj in _asteroids)
             {
                 obj.Update();
+                if (obj.Collision(_bullet))
+                {
+                    _bullet.ReDraw(new Point (0, 200));
+                    obj.ReDraw(new Point(550, 200));
+                    System.Media.SystemSounds.Hand.Play();
+                    Debug.WriteLine($"коллизия");
+                }
             }
             foreach (var obj in _stars)
             {
                 obj.Update();
             }
             comet.Update();
+            _bullet.Update();
+
             SplashScreen.updateAll();
         }
 
         public static void Load()
         {
+            _bullet = new Bullet(new Point(0, 200), new Point(5, 0), new Size(30, 30));
             var random = new Random();
             _asteroids = new Asteroid[15];
 
@@ -106,7 +135,7 @@ namespace WindowsFormsApp2
             }
 
             //заполняем массив звезд
-            _stars = new Asteroid[20];
+            _stars = new Star[20];
             for (int i = 0; i < _stars.Length; i++)
             {
                 var size = random.Next(10, 40);
