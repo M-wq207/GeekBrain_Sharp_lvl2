@@ -1,0 +1,7 @@
+C:\Users\epch\source\repos\[gb][lvl2][cw]Leson3\[gb][lvl2][cw]Leson3\bin\Debug\[gb][lvl2][cw]Leson3.exe.config
+C:\Users\epch\source\repos\[gb][lvl2][cw]Leson3\[gb][lvl2][cw]Leson3\bin\Debug\[gb][lvl2][cw]Leson3.exe
+C:\Users\epch\source\repos\[gb][lvl2][cw]Leson3\[gb][lvl2][cw]Leson3\bin\Debug\[gb][lvl2][cw]Leson3.pdb
+C:\Users\epch\source\repos\[gb][lvl2][cw]Leson3\[gb][lvl2][cw]Leson3\obj\Debug\[gb][lvl2][cw]Leson3.csprojAssemblyReference.cache
+C:\Users\epch\source\repos\[gb][lvl2][cw]Leson3\[gb][lvl2][cw]Leson3\obj\Debug\[gb][lvl2][cw]Leson3.csproj.CoreCompileInputs.cache
+C:\Users\epch\source\repos\[gb][lvl2][cw]Leson3\[gb][lvl2][cw]Leson3\obj\Debug\[gb][lvl2][cw]Leson3.exe
+C:\Users\epch\source\repos\[gb][lvl2][cw]Leson3\[gb][lvl2][cw]Leson3\obj\Debug\[gb][lvl2][cw]Leson3.pdb

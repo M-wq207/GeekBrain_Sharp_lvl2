@@ -19,7 +19,6 @@ namespace WindowsFormsApp2
         public override void Update()
         {
             Pos.X = Pos.X + 30;
-            if (Pos.X > 800) Pos.X = 0;
         }
     }
 }
