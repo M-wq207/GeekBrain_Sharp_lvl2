@@ -12,6 +12,8 @@ namespace WindowsFormsApp2
         protected Point Pos;
         protected Point Dir;
         protected Size Size;
+        public delegate void Message();
+        public delegate void backlog(int a);
 
         protected BaseObject(Point pos, Point dir, Size size)
         {
