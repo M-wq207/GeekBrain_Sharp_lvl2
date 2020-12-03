@@ -1,0 +1,7 @@
+C:\Users\epch\source\repos\Leson4\Leson4\bin\Debug\Leson4.exe.config
+C:\Users\epch\source\repos\Leson4\Leson4\bin\Debug\Leson4.exe
+C:\Users\epch\source\repos\Leson4\Leson4\bin\Debug\Leson4.pdb
+C:\Users\epch\source\repos\Leson4\Leson4\obj\Debug\Leson4.csprojAssemblyReference.cache
+C:\Users\epch\source\repos\Leson4\Leson4\obj\Debug\Leson4.csproj.CoreCompileInputs.cache
+C:\Users\epch\source\repos\Leson4\Leson4\obj\Debug\Leson4.exe
+C:\Users\epch\source\repos\Leson4\Leson4\obj\Debug\Leson4.pdb

@@ -14,18 +14,18 @@ namespace WindowsFormsApp2
     {
         private static BufferedGraphicsContext _context;
         public static BufferedGraphics Buffer;
+        static List<Asteroid> asteroidsList = new List<Asteroid>();
         static BaseObject[] _asteroids;
         static BaseObject[] _stars;
         static MedKit medkit;
-        //static Bullet _bullet;
         private static List<Bullet> _bullets = new List<Bullet>();
         private static Timer timer;
         public static Ship _ship = new Ship(new Point(10, 400), new Point(5,5), new Size(40, 40));
         private static comet comet = new comet(new Point(400, 500), new Point(-30, -30), new Size(50, 50));
-        //
         public delegate void mainWindowDelegate();
         public static mainWindowDelegate hit;
         public static mainWindowDelegate newGame;
+        public static int CurentLevel = 15;
         public static int Width { get; set; }
         public static int Height { get; set; }
 
@@ -114,7 +114,7 @@ namespace WindowsFormsApp2
         {
             if (e.KeyCode == Keys.ControlKey)
             {
-                _bullets.Add(new Bullet(new Point(_ship.Rect.X + 10, _ship.Rect.Y + 20), new Point(5, 0), new Size(30, 30)));
+                _bullets.Add(new Bullet(new Point(_ship.Rect.X, _ship.Rect.Y), new Point(5, 0), new Size(30, 30)));
             }
             if (e.KeyCode == Keys.Up) _ship.Up();
             if (e.KeyCode == Keys.Down) _ship.Down();
@@ -138,7 +138,7 @@ namespace WindowsFormsApp2
                 //звезды
                 foreach (Star obj in _stars)
                 {
-                    obj.Draw();
+                    obj?.Draw();
                 }
 
                 //планета
@@ -146,10 +146,11 @@ namespace WindowsFormsApp2
 
 
                 //астероиды
-                foreach (Asteroid obj in _asteroids)
-                {
-                    if (obj != null)obj.Draw();
-                }
+                //foreach (Asteroid obj in _asteroids)
+                //{
+                //    if (obj != null)obj.Draw();
+                //}
+                foreach (Asteroid obj in asteroidsList) obj?.Draw();
 
                 //комета
                 comet.Draw();
@@ -167,8 +168,10 @@ namespace WindowsFormsApp2
                 if (_ship != null) _ship.Draw();
 
                 //отображение количества энергии
+                int leveler = CurentLevel - 14;
                 if (_ship != null) Buffer.Graphics.DrawString("Energy:" + _ship.Energy, SystemFonts.DefaultFont, Brushes.White, 0, 0);
-                if (_ship != null) Buffer.Graphics.DrawString("Score:" + _ship.Point, SystemFonts.DefaultFont, Brushes.White, 0, 10);
+                if (_ship != null) Buffer.Graphics.DrawString("Score:" + _ship.Point, SystemFonts.DefaultFont, Brushes.White, 0, 15);
+                if (_ship != null) Buffer.Graphics.DrawString($"Level: {leveler}", SystemFonts.DefaultFont, Brushes.White, 0, 30);
 
 
                 //аптечка
@@ -181,28 +184,46 @@ namespace WindowsFormsApp2
                 Debug.WriteLine(ex.Message);
             }
         }
+        public static void asteroidListFill(int a)
+        {
+            var random = new Random();
 
+            for (int i = 0; i < 15; i++)
+
+            {
+                var size = random.Next(10, 40);
+                asteroidsList.Add(new Asteroid(new Point(600, i * 20), new Point(-i, -i), new Size(size, size)));
+            }
+        }
         public static void Update()
         {
+            if (asteroidsList.Count == 0)
+            {
+                asteroidListFill(++CurentLevel);
+                _bullets.Clear();
+            }
             foreach (var bullet in _bullets)
             {
                 bullet.Update();
             }
-            for (int i = 0; i < _asteroids.Length; i++)
+            //
+            for (int i = 0; i < asteroidsList.Count ; i++)
             {
-                if (_asteroids[i] == null) continue;
-                _asteroids[i].Update();
+                if (asteroidsList[i] == null) continue;
+                asteroidsList[i].Update();
 
                 for (int j = 0; j < _bullets.Count; j++)
                 {
-                    if (_asteroids[i] != null && _bullets[j].Collision(_asteroids[i]))
+                    if (asteroidsList.Count != 0 && asteroidsList[i] != null && _bullets[j] != null && _bullets[j].Collision(asteroidsList[i]))
                     {
                         hit();
                         _ship.PointsUp();
                         System.Media.SystemSounds.Hand.Play();
-                        _asteroids[i] = null;
+                        asteroidsList.RemoveAt(i);
                         _bullets.RemoveAt(j);
-                        j--;
+                        if (j > 0) j--;
+                        if (i > 0) i--;
+                        if (asteroidsList.Count == 0) asteroidListFill (++CurentLevel);
                     }
                 }
 
@@ -259,16 +280,21 @@ namespace WindowsFormsApp2
         {
 
             ng();
-            //_bullet = new Bullet(new Point(0, 200), new Point(5, 0), new Size(30, 30));
             var random = new Random();
             _asteroids = new Asteroid[15];
-
             //заполняем массив астероидов 
-            for (int i = 0; i < _asteroids.Length; i++)
-            {
-                var size = random.Next(10, 40);
-                _asteroids[i] = new Asteroid(new Point(600, i*20), new Point(-i, -i), new Size(size, size));
-            }
+            //for (int i = 0; i < _asteroids.Length; i++)
+            //{
+            //    var size = random.Next(10, 40);
+            //    _asteroids[i] = new Asteroid(new Point(600, i * 20), new Point(-i, -i), new Size(size, size));
+            //}
+            //
+            //for (int i = 1; i < asteroidsList.Capacity - 1; i++)
+            //{
+            //    var size = random.Next(10, 40);
+            //    asteroidsList.Add(new Asteroid(new Point(600, i*20), new Point(-i, -i), new Size(size, size)));
+            //}
+            asteroidListFill(CurentLevel);
 
             //заполняем массив звезд
             _stars = new Star[20];
