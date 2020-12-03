@@ -1,0 +1,22 @@
+﻿<Window x:Class="Leson5.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Leson5"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="541.221">
+    <Grid HorizontalAlignment="Left" Width="792" Height="419" VerticalAlignment="Top">
+        <ListView x:Name="EmployeeListView" Margin="10,10,271,68" SelectionChanged="EmployeeListView_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="100" Header="Имя" DisplayMemberBinding="{Binding Name}"/>
+                    <GridViewColumn Width="100" Header="Пол" DisplayMemberBinding="{Binding Gender}"/>
+                    <GridViewColumn Width="200" Header="День рожденья" DisplayMemberBinding="{Binding Birthday}"/>
+                    <GridViewColumn Width="100" Header="Департамент" DisplayMemberBinding="{Binding Department}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button x:Name="changeButton" Content="Изменить/добавить сотрудника" Margin="10,356,271,10" Click="changeButton_Click"/>
+    </Grid>
+</Window>
