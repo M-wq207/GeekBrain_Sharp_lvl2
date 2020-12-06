@@ -12,6 +12,7 @@ namespace WindowsFormsApp2
     {
         Point PlanetPos = new Point();
         Point StationPos = new Point();
+       // public Image Img { get; set; }
         
 
         public SpaceShip(Point pos, Point dir, Size size, Image img, Point planetPos, Point stationPos) : base(pos, dir, size, img) 

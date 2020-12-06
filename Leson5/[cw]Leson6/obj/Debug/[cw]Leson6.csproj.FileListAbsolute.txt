@@ -1,0 +1,15 @@
+C:\Users\epch\source\repos\GB_CSH\GeekBrain_Sharp_lvl2\Leson5\[cw]Leson6\obj\Debug\[cw]Leson6.csprojAssemblyReference.cache
+C:\Users\epch\source\repos\GB_CSH\GeekBrain_Sharp_lvl2\Leson5\[cw]Leson6\obj\Debug\App.g.cs
+C:\Users\epch\source\repos\GB_CSH\GeekBrain_Sharp_lvl2\Leson5\[cw]Leson6\obj\Debug\[cw]Leson6_MarkupCompile.cache
+C:\Users\epch\source\repos\GB_CSH\GeekBrain_Sharp_lvl2\Leson5\[cw]Leson6\bin\Debug\[cw]Leson6.exe.config
+C:\Users\epch\source\repos\GB_CSH\GeekBrain_Sharp_lvl2\Leson5\[cw]Leson6\bin\Debug\[cw]Leson6.exe
+C:\Users\epch\source\repos\GB_CSH\GeekBrain_Sharp_lvl2\Leson5\[cw]Leson6\bin\Debug\[cw]Leson6.pdb
+C:\Users\epch\source\repos\GB_CSH\GeekBrain_Sharp_lvl2\Leson5\[cw]Leson6\obj\Debug\MainWindow.g.cs
+C:\Users\epch\source\repos\GB_CSH\GeekBrain_Sharp_lvl2\Leson5\[cw]Leson6\obj\Debug\[cw]Leson6_MarkupCompile.lref
+C:\Users\epch\source\repos\GB_CSH\GeekBrain_Sharp_lvl2\Leson5\[cw]Leson6\obj\Debug\MainWindow.baml
+C:\Users\epch\source\repos\GB_CSH\GeekBrain_Sharp_lvl2\Leson5\[cw]Leson6\obj\Debug\[cw]Leson6.g.resources
+C:\Users\epch\source\repos\GB_CSH\GeekBrain_Sharp_lvl2\Leson5\[cw]Leson6\obj\Debug\_cw_Leson6.Properties.Resources.resources
+C:\Users\epch\source\repos\GB_CSH\GeekBrain_Sharp_lvl2\Leson5\[cw]Leson6\obj\Debug\[cw]Leson6.csproj.GenerateResource.cache
+C:\Users\epch\source\repos\GB_CSH\GeekBrain_Sharp_lvl2\Leson5\[cw]Leson6\obj\Debug\[cw]Leson6.csproj.CoreCompileInputs.cache
+C:\Users\epch\source\repos\GB_CSH\GeekBrain_Sharp_lvl2\Leson5\[cw]Leson6\obj\Debug\[cw]Leson6.exe
+C:\Users\epch\source\repos\GB_CSH\GeekBrain_Sharp_lvl2\Leson5\[cw]Leson6\obj\Debug\[cw]Leson6.pdb
