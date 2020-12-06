@@ -98,9 +98,6 @@
     <None Include="Resources\star2.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\star3.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\comet.png" />
   </ItemGroup>
   <ItemGroup>
@@ -117,6 +114,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\first_aid_kit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\star3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\star4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\star6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\comet6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ship8.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

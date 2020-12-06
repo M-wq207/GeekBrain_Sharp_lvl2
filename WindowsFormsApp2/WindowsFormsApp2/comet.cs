@@ -12,7 +12,8 @@ namespace WindowsFormsApp2
         public Image img { get; set; }
         public comet(Point pos, Point dir, Size size) : base (pos, dir, size)
         {
-            img = WindowsFormsApp2.Properties.Resources.comet;
+            img = WindowsFormsApp2.Properties.Resources.comet6;
+            img.RotateFlip(RotateFlipType.Rotate90FlipNone);
         }
         public override void Draw()
         {

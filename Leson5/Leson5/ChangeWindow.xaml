@@ -5,17 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Leson5"
         mc:Ignorable="d"
-        Title="ChangeWindow" Height="172.194" Width="651.096">
+        Title="ChangeWindow" Height="183.161" Width="651.096">
     <Grid Height="419" VerticalAlignment="Top" HorizontalAlignment="Left" Width="792" Margin="25,0,0,-8">
-        <Button x:Name="saveButton" Content="Сохранить изменения" Margin="204,97,0,0" Click="saveButton_Click" HorizontalAlignment="Left" Width="188" Height="20" VerticalAlignment="Top"/>
-        <Button x:Name="canselButton" Content="Отменить изменения" Margin="397,97,0,0" Click="canselButton_Click" HorizontalAlignment="Left" Width="190" Height="20" VerticalAlignment="Top"/>
+        <Button x:Name="saveButton" Content="Сохранить изменения" Margin="204,115,0,0" Click="saveButton_Click" HorizontalAlignment="Left" Width="188" Height="20" VerticalAlignment="Top"/>
+        <Button x:Name="canselButton" Content="Отменить изменения" Margin="397,115,0,0" Click="canselButton_Click" HorizontalAlignment="Left" Width="190" Height="20" VerticalAlignment="Top"/>
         <TextBox x:Name="NameTextBox" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="577"/>
-        <Button x:Name="newEmplButton" Content="Создать нового сотрудника" HorizontalAlignment="Right" Margin="0,97,593,0" Width="189" Click="newEmplButton_Click" Height="20" VerticalAlignment="Top"/>
+        <Button x:Name="newEmplButton" Content="Создать нового сотрудника" HorizontalAlignment="Right" Margin="0,115,593,0" Width="189" Click="newEmplButton_Click" Height="20" VerticalAlignment="Top"/>
         <DatePicker x:Name="BirthdayDataPeacker"  HorizontalAlignment="Left" Margin="115,55,0,0" VerticalAlignment="Top"/>
         <ComboBox x:Name="DepartmentComboBox" HorizontalAlignment="Left" Margin="262,55,0,0" VerticalAlignment="Top" Width="139"/>
         <local:GenderControl x:Name="GenderControlRadioButton" HorizontalAlignment="Left" Height="54" Margin="10,38,0,0" VerticalAlignment="Top" Width="100"/>
         <Button x:Name="addDepartButton" Content="Добавить департамент" HorizontalAlignment="Left" Margin="418,68,0,0" VerticalAlignment="Top" Width="147" Height="24" Click="addDepartButton_Click"/>
         <TextBox x:Name="addDepartTextBox" HorizontalAlignment="Left" Height="25" Margin="418,38,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="147"/>
-
+        <CheckBox x:Name="blockedCheckBox" Content="Блокировка" HorizontalAlignment="Left" Margin="448,97,0,0" Height="15" VerticalAlignment="Top"/>
     </Grid>
 </Window>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,11 +20,11 @@ namespace Leson5
     /// </summary>
     public partial class ChangeWindow : Window
     {
-        public static Employee changingEmployee;
+        public static EmployeeV2 changingEmployee;
         public static MainWindow MainWindow;
-        public static List<Department> DepartmentList = new List<Department>();
+        public static ObservableCollection<Department> DepartmentList = new ObservableCollection<Department>();
         public static int employeeID;
-        public ChangeWindow(MainWindow mw, Employee emp, List<Department> dl, int eID)
+        public ChangeWindow(MainWindow mw, EmployeeV2 emp, ObservableCollection<Department> dl, int eID)
         {
             changingEmployee = emp;
             MainWindow = mw;
@@ -38,6 +39,7 @@ namespace Leson5
             BirthdayDataPeacker.SelectedDate = changingEmployee.Birthday;
             DepartmentComboBox.SelectedItem = changingEmployee.Department;
             GenderControlRadioButton.Gender = changingEmployee.Gender;
+            blockedCheckBox.IsChecked = changingEmployee.Locked;
         }
 
         private void saveButton_Click(object sender, RoutedEventArgs e)
@@ -47,31 +49,33 @@ namespace Leson5
             changingEmployee.Birthday = (DateTime)BirthdayDataPeacker.SelectedDate;
             changingEmployee.Gender = GenderControlRadioButton.Gender;
             changingEmployee.Department = (Department)DepartmentComboBox.SelectedItem;
+            changingEmployee.Locked = (bool)blockedCheckBox.IsChecked;
             //MainWindow.EmployeeList[employeeID] = changingEmployee;
-            MainWindow.EmployeeListView.ItemsSource = null;
-            MainWindow.EmployeeListView.ItemsSource = MainWindow.EmployeeList;
+            //MainWindow.EmployeeListView.ItemsSource = null;
+            //MainWindow.EmployeeListView.ItemsSource = MainWindow.PmployeeList;
             this.Hide();
             MainWindow.Show();
         }
 
         private void canselButton_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow.EmployeeListView.ItemsSource = null;
-            MainWindow.EmployeeListView.ItemsSource = MainWindow.EmployeeList;
+            //MainWindow.EmployeeListView.ItemsSource = null;
+            //MainWindow.EmployeeListView.ItemsSource = MainWindow.PmployeeList;
             this.Hide();
             MainWindow.Show();
         }
 
         private void newEmplButton_Click(object sender, RoutedEventArgs e)
         {
-            Employee addingEmployee = new Employee();
+            var addingEmployee = new EmployeeV2();
             addingEmployee.Name = NameTextBox.Text;
             addingEmployee.Birthday = (DateTime)BirthdayDataPeacker.SelectedDate;
             addingEmployee.Gender = GenderControlRadioButton.Gender;
             addingEmployee.Department = (Department)DepartmentComboBox.SelectedItem;
-            MainWindow.EmployeeList.Add(addingEmployee);
-            MainWindow.EmployeeListView.ItemsSource = null;
-            MainWindow.EmployeeListView.ItemsSource = MainWindow.EmployeeList;
+            changingEmployee.Locked = (bool)blockedCheckBox.IsChecked;
+            MainWindow.PmployeeList.Add(addingEmployee);
+            //EmployeeListView.ItemsSource = null;
+            //MainWindow.EmployeeListView.ItemsSource = MainWindow.PmployeeList;
             this.Hide();
             MainWindow.Show();
         }
@@ -80,8 +84,8 @@ namespace Leson5
         {
             var newDep = new Department(addDepartTextBox.Text);
             MainWindow.DepartmentList.Add(newDep);
-            DepartmentComboBox.ItemsSource = null;
-            DepartmentComboBox.ItemsSource = MainWindow.DepartmentList;
+            //DepartmentComboBox.ItemsSource = null;
+            //DepartmentComboBox.ItemsSource = MainWindow.DepartmentList;
         }
     }
 }

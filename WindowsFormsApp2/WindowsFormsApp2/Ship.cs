@@ -14,6 +14,8 @@ namespace WindowsFormsApp2
         public static event Message MessageDie;
         public static event backlog DamagedByAsteroid;
         public static event backlog hill;
+        public Image Img { get; set; }
+
         public int Energy => _energy;
         public int Point => _point;
         public void PointsUp()
@@ -31,10 +33,14 @@ namespace WindowsFormsApp2
             _energy += n;
         }
 
-        public Ship(Point pos, Point dir, Size size) : base(pos, dir, size) { }
+        public Ship(Point pos, Point dir, Size size) : base(pos, dir, size) 
+        {
+            Img = WindowsFormsApp2.Properties.Resources.ship8;
+            Img.RotateFlip(RotateFlipType.Rotate270FlipNone);
+        }
         public override void Draw()
         {
-            Game.Buffer.Graphics.DrawImage(new Bitmap(WindowsFormsApp2.Properties.Resources.ship2, new Size(Size.Width, Size.Height)), Pos.X, Pos.Y);
+            Game.Buffer.Graphics.DrawImage(new Bitmap(Img, new Size(Size.Width, Size.Height)), Pos.X, Pos.Y);
         }
 
         public override void Update()

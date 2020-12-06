@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static Leson5.LockedConverter;
 
 namespace Leson5
 {
@@ -21,36 +23,33 @@ namespace Leson5
     public partial class MainWindow : Window
     {
         //создаем списки содержащие Работников и Департаменты
-        public static List<Employee> EmployeeList = new List<Employee>();
-        public static List<Department> DepartmentList = new List<Department>();
-        public static Employee transitEmployee = new Employee();
+        public static ObservableCollection<EmployeeV2> PmployeeList { get; set; } = new ObservableCollection<EmployeeV2>();
+        public static ObservableCollection<Department> DepartmentList { get; set; } = new ObservableCollection<Department>();
+        //
+        public static EmployeeV2 transitEmployee = new EmployeeV2();
         public static int SelectedPersonID;
         public MainWindow()
         {
-        
-            InitializeComponent();
 
-            //заполняем списки содержащие Работников и Департаменты
-            DepartmentList.AddRange(new[]
-            {
-                new Department("First"),
-                new Department("Second"),
-                new Department("Techno"),
-            });
-            EmployeeList.AddRange(new[]
-            {
-                new Employee ("Andry", new DateTime(2001, 11,9), Gender.male, DepartmentList[0]),
-                new Employee ("Dan", new DateTime(2002, 10,9),Gender.male, DepartmentList[1]),
-                new Employee ("Set", new DateTime(2004, 10,3),Gender.male, DepartmentList[2]),
-                new Employee ("Ted", new DateTime(2021, 10,2), Gender.female, DepartmentList[0]),
-                new Employee ("Cet", new DateTime(2011, 9,1), Gender.male, DepartmentList[1]),
-                new Employee ("Text", new DateTime(2000, 10,1), Gender.female, DepartmentList[2]),
-                new Employee ("Dexter", new DateTime(2002, 8,9), Gender.female, DepartmentList[0]),
-            });
+            //var a = new LockedConverter();
+            InitializeComponent();
+            this.DataContext = this;
+
+            DepartmentList.Add(new Department("Первый"));
+            DepartmentList.Add(new Department("Второй"));
+            DepartmentList.Add(new Department("Технический"));
+
+            PmployeeList.Add(new EmployeeV2("Andry", new DateTime(2001, 11, 9), Gender.male, DepartmentList[0], true));
+            PmployeeList.Add(new EmployeeV2("Dan", new DateTime(2002, 10, 9), Gender.male, DepartmentList[1], true));
+            PmployeeList.Add(new EmployeeV2("Set", new DateTime(2004, 10, 3), Gender.male, DepartmentList[2], false));
+            PmployeeList.Add(new EmployeeV2("Ted", new DateTime(2021, 10, 2), Gender.female, DepartmentList[0], false));
+            PmployeeList.Add(new EmployeeV2("Cet", new DateTime(2011, 9, 1), Gender.male, DepartmentList[1], true));
+            PmployeeList.Add(new EmployeeV2("Text", new DateTime(2000, 10, 1), Gender.female, DepartmentList[2], false));
+            PmployeeList.Add(new EmployeeV2("Dexter", new DateTime(2002, 8, 9), Gender.female, DepartmentList[0], true));
             //На всякий случай обнуляем ItemsSourse перед использованием, чтобы не было ошибки "перед ItemsSource использованием дб пустым"
-            EmployeeListView.ItemsSource = null;
-            // Передаем в ListView "EmployeeListView" лист EmployeeList на отображение
-            EmployeeListView.ItemsSource = EmployeeList;
+            //EmployeeListView.ItemsSource = null;
+            //// Передаем в ListView "EmployeeListView" лист EmployeeList на отображение
+            //EmployeeListView.ItemsSource = PmployeeList;
 
         }
 
@@ -65,8 +64,8 @@ namespace Leson5
         {
             if (e.AddedItems.Count != 0)
             {
-                transitEmployee = (Employee)e.AddedItems[0];
-                SelectedPersonID = EmployeeList.IndexOf((Employee)e.AddedItems[0]);
+                transitEmployee = (EmployeeV2)e.AddedItems[0];
+                SelectedPersonID = PmployeeList.IndexOf((EmployeeV2)e.AddedItems[0]);
             }
         }
     }

@@ -4,19 +4,28 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Leson5"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="541.221">
-    <Grid HorizontalAlignment="Left" Width="792" Height="419" VerticalAlignment="Top">
-        <ListView x:Name="EmployeeListView" Margin="10,10,271,68" SelectionChanged="EmployeeListView_SelectionChanged">
+        
+    mc:Ignorable="d"
+        Title="MainWindow" Height="494" Width="649.221">
+    <Window.Resources>
+        <local:LockedConverter x:Key="lockedConverter"></local:LockedConverter>
+    </Window.Resources>
+    <Grid HorizontalAlignment="Left" Width="890" Height="450" VerticalAlignment="Top" Margin="0,0,-357,-31">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="214*"/>
+            <ColumnDefinition Width="231*"/>
+        </Grid.ColumnDefinitions>
+        <ListView x:Name="EmployeeListView" ItemsSource="{Binding PmployeeList}" Margin="10,10,271,68" SelectionChanged="EmployeeListView_SelectionChanged" Grid.ColumnSpan="2">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Width="100" Header="Имя" DisplayMemberBinding="{Binding Name}"/>
                     <GridViewColumn Width="100" Header="Пол" DisplayMemberBinding="{Binding Gender}"/>
                     <GridViewColumn Width="200" Header="День рожденья" DisplayMemberBinding="{Binding Birthday}"/>
                     <GridViewColumn Width="100" Header="Департамент" DisplayMemberBinding="{Binding Department}"/>
+                    <GridViewColumn Width="100" Header="Блокировка" DisplayMemberBinding="{Binding Locked, Converter={StaticResource lockedConverter}}"/>
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button x:Name="changeButton" Content="Изменить/добавить сотрудника" Margin="10,356,271,10" Click="changeButton_Click"/>
+        <Button x:Name="changeButton" Content="Изменить/добавить сотрудника" Margin="10,356,271,10" Click="changeButton_Click" Grid.ColumnSpan="2"/>
     </Grid>
 </Window>

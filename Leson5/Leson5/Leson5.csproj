@@ -80,6 +80,7 @@
     <Compile Include="GenderControl.xaml.cs">
       <DependentUpon>GenderControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\LockedConverter.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -111,5 +112,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
