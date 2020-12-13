@@ -56,8 +56,33 @@ namespace Leson5
         private void changeButton_Click(object sender, RoutedEventArgs e)
         {
             var changeWind = new ChangeWindow(this, transitEmployee, DepartmentList, SelectedPersonID);
-            this.Hide();
-            changeWind.Show();
+            //this.Hide();
+            if ((bool)changeWind.ShowDialog())
+            {
+               if (changeWind.Department != null)
+                {
+                    DepartmentList.Add(changeWind.Department);
+                }
+               if (changeWind.SaveButton)
+                {
+                    transitEmployee.Name = changeWind.Name;
+                    transitEmployee.Birthday = changeWind.Birthday;
+                    transitEmployee.Department = changeWind.Department;
+                    transitEmployee.Gender = changeWind.Gender;
+                    transitEmployee.Locked = changeWind.Locked;
+                }
+                if (changeWind.NewEmpButton)
+                {
+                    PmployeeList.Add(new EmployeeV2(changeWind.Name, new DateTime(2001, 11, 9), changeWind.Gender, changeWind.Department, changeWind.Locked));
+
+                    transitEmployee.Name = changeWind.Name;
+                    transitEmployee.Birthday = changeWind.Birthday;
+                    transitEmployee.Department = changeWind.Department;
+                    transitEmployee.Gender = changeWind.Gender;
+                    transitEmployee.Locked = changeWind.Locked;
+                }
+            }
+            
         }
 
         private void EmployeeListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
