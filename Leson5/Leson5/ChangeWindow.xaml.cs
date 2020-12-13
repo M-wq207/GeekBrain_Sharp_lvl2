@@ -24,6 +24,14 @@ namespace Leson5
         public static MainWindow MainWindow;
         public static ObservableCollection<Department> DepartmentList = new ObservableCollection<Department>();
         public static int employeeID;
+        //
+        public  string Name { get; set; }
+        public  DateTime Birthday { get; set; }
+        public  Gender Gender { get; set; }
+        public  Department Department { get; set; }
+        public  bool Locked { get; set; }
+        public bool SaveButton { get; set; } = false;
+        public  bool NewEmpButton { get; set; } = false;
         public ChangeWindow(MainWindow mw, EmployeeV2 emp, ObservableCollection<Department> dl, int eID)
         {
             changingEmployee = emp;
@@ -44,48 +52,38 @@ namespace Leson5
 
         private void saveButton_Click(object sender, RoutedEventArgs e)
         {
-
-            changingEmployee.Name = NameTextBox.Text;
-            changingEmployee.Birthday = (DateTime)BirthdayDataPeacker.SelectedDate;
-            changingEmployee.Gender = GenderControlRadioButton.Gender;
-            changingEmployee.Department = (Department)DepartmentComboBox.SelectedItem;
-            changingEmployee.Locked = (bool)blockedCheckBox.IsChecked;
-            //MainWindow.EmployeeList[employeeID] = changingEmployee;
-            //MainWindow.EmployeeListView.ItemsSource = null;
-            //MainWindow.EmployeeListView.ItemsSource = MainWindow.PmployeeList;
+            Name = NameTextBox.Text;
+            Birthday = (DateTime)BirthdayDataPeacker.SelectedDate;
+            Gender = GenderControlRadioButton.Gender;
+            Department = (Department)DepartmentComboBox.SelectedItem;
+            Locked = (bool)blockedCheckBox.IsChecked;
+            SaveButton = true;
+            DialogResult = true;
             this.Hide();
             MainWindow.Show();
         }
 
         private void canselButton_Click(object sender, RoutedEventArgs e)
         {
-            //MainWindow.EmployeeListView.ItemsSource = null;
-            //MainWindow.EmployeeListView.ItemsSource = MainWindow.PmployeeList;
-            this.Hide();
-            MainWindow.Show();
+            DialogResult = false;
         }
 
         private void newEmplButton_Click(object sender, RoutedEventArgs e)
         {
-            var addingEmployee = new EmployeeV2();
-            addingEmployee.Name = NameTextBox.Text;
-            addingEmployee.Birthday = (DateTime)BirthdayDataPeacker.SelectedDate;
-            addingEmployee.Gender = GenderControlRadioButton.Gender;
-            addingEmployee.Department = (Department)DepartmentComboBox.SelectedItem;
-            changingEmployee.Locked = (bool)blockedCheckBox.IsChecked;
-            MainWindow.PmployeeList.Add(addingEmployee);
-            //EmployeeListView.ItemsSource = null;
-            //MainWindow.EmployeeListView.ItemsSource = MainWindow.PmployeeList;
-            this.Hide();
-            MainWindow.Show();
+            NewEmpButton = true;
+            Name = NameTextBox.Text;
+            Birthday = (DateTime)BirthdayDataPeacker.SelectedDate;
+            Gender = GenderControlRadioButton.Gender;
+            Department = (Department)DepartmentComboBox.SelectedItem;
+            Locked = (bool)blockedCheckBox.IsChecked;
+            DialogResult = true;
         }
 
         private void addDepartButton_Click(object sender, RoutedEventArgs e)
         {
             var newDep = new Department(addDepartTextBox.Text);
-            MainWindow.DepartmentList.Add(newDep);
-            //DepartmentComboBox.ItemsSource = null;
-            //DepartmentComboBox.ItemsSource = MainWindow.DepartmentList;
+            Department = newDep;
+            DialogResult = true;
         }
     }
 }
