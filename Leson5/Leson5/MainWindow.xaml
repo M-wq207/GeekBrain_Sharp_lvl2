@@ -15,7 +15,7 @@
             <ColumnDefinition Width="214*"/>
             <ColumnDefinition Width="231*"/>
         </Grid.ColumnDefinitions>
-        <ListView x:Name="EmployeeListView" ItemsSource="{Binding PmployeeList}" Margin="10,10,271,68" SelectionChanged="EmployeeListView_SelectionChanged" Grid.ColumnSpan="2">
+        <ListView x:Name="EmployeeListView" ItemsSource="{Binding}" Margin="10,10,271,68" SelectionChanged="EmployeeListView_SelectionChanged" Grid.ColumnSpan="2">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Width="100" Header="Имя" DisplayMemberBinding="{Binding Name}"/>
